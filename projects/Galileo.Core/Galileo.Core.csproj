@@ -1,0 +1,108 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <Description>Galileo Core Library</Description>
+    <ReleaseVersion>2018.1</ReleaseVersion>
+    <AssemblyOriginatorKeyFile>..\keys\Galileo.snk</AssemblyOriginatorKeyFile>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'macOS-Debug|AnyCPU' ">
+    <NoWarn>NU1701;1701;1702;1705</NoWarn>
+    <IntermediateOutputPath>obj\Debug\netstandard2.0</IntermediateOutputPath>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <DefineConstants>__MACOS__;TRACE;DEBUG;NETSTANDARD2_0</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'macOS-Release|AnyCPU' ">
+    <IntermediateOutputPath>obj\Release\netstandard2.0</IntermediateOutputPath>
+    <DebugType></DebugType>
+    <Optimize>true</Optimize>
+    <DefineConstants>__MACOS__;RELEASE;NETSTANDARD2_0;$(BUILD_DEFINE)</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugType>full</DebugType>
+    <DefineConstants>__WINDOWS__;TRACE;DEBUG;NETSTANDARD2_0</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType></DebugType>
+    <DefineConstants>__WINDOWS__;RELEASE;NETSTANDARD2_0;$(BUILD_DEFINE)</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Linux-Debug|AnyCPU' ">
+    <IntermediateOutputPath>obj\Linux-Debug\netstandard2.0</IntermediateOutputPath>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Linux-Debug\netstandard2.0</OutputPath>
+    <DefineConstants>__LINUX__;TRACE;DEBUG;NETSTANDARD2_0</DefineConstants>
+    <WarningLevel>4</WarningLevel>
+    <AssemblyOriginatorKeyFile></AssemblyOriginatorKeyFile>
+    <NoWarn>NU1701;1701;1702;1705</NoWarn>
+    <NoStdLib>true</NoStdLib>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Linux-Release|AnyCPU' ">
+    <IntermediateOutputPath>obj\Linux-Release\netstandard2.0</IntermediateOutputPath>
+    <DebugType></DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\CLI-Release</OutputPath>
+    <DefineConstants>__LINUX__;RELEASE;NETSTANDARD2_0;$(BUILD_DEFINE)</DefineConstants>
+    <AssemblyOriginatorKeyFile></AssemblyOriginatorKeyFile>
+    <NoWarn></NoWarn>
+    <NoStdLib>true</NoStdLib>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Remove="LimeLM\**" />
+    <EmbeddedResource Remove="LimeLM\**" />
+    <None Remove="LimeLM\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="DocumentFormat.OpenXml" Version="2.8.1" />
+    <PackageReference Include="AODL" Version="1.2.0.1" NoWarn="NU1701" />
+    <PackageReference Include="iTextSharp" Version="5.5.13" NoWarn="NU1701" />
+    <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
+    <PackageReference Include="IxMilia.Dxf" Version="0.7.0" />
+    <PackageReference Include="I18NPortable" Version="0.6.0" />
+    <PackageReference Include="RtfPipe" Version="0.7.0.6" />
+    <PackageReference Include="HtmlAgilityPack" Version="1.8.1" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Report\HTML\" />
+    <Folder Include="Report\HTML\Sections\" />
+    <Folder Include="Report\HTML\Components\" />
+    <Folder Include="Localization\" />
+    <Folder Include="Report\HTML\External\" />
+    <Folder Include="Analytics\" />
+    <Folder Include="Logging\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Report\HTML\External\bootstrap-4.0.0-beta.3.min.css" />
+    <None Remove="Report\HTML\External\bootstrap-4.0.0-beta.3.min.js" />
+    <None Remove="Report\HTML\External\jquery-3.2.1.slim.min.js" />
+    <None Remove="Report\HTML\External\background.base64" />
+    <None Remove="Report\HTML\External\check.base64" />
+    <None Remove="Report\HTML\External\cross.base64" />
+    <None Remove="Report\HTML\External\dotbunny.base64" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Report\HTML\External\bootstrap-4.0.0-beta.3.min.css">
+      <LogicalName>Galileo.Core.Report.HTML.External.bootstrap.css</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\HTML\External\bootstrap-4.0.0-beta.3.min.js">
+      <LogicalName>Galileo.Core.Report.HTML.External.bootstrap.js</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\HTML\External\jquery-3.2.1.slim.min.js">
+      <LogicalName>Galileo.Core.Report.HTML.External.jquery.js</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\HTML\External\logo.base64" />
+    <EmbeddedResource Include="Report\HTML\External\check.base64" />
+    <EmbeddedResource Include="Report\HTML\External\cross.base64" />
+    <EmbeddedResource Include="Report\HTML\External\dotbunny.base64" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Galileo.Localization\Galileo.Localization.csproj" />
+    <ProjectReference Include="..\Galileo.Vendor\Galileo.Vendor.csproj" />
+  </ItemGroup>
+</Project>

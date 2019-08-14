@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi" xmlns:netfx="http://schemas.microsoft.com/wix/NetFxExtension">
+
+
+  <Product 
+    Id="*" 
+    Name="Galileo" 
+    Language="1033"
+    Version="$(var.PackageVersion)"  
+    Manufacturer="dotBunny Inc." 
+    UpgradeCode="0e3ac0bc-c4be-4155-9497-d30d214eb5c5">
+
+    <Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" />
+    <MediaTemplate EmbedCab="yes" />
+    <Icon Id="icon.ico" SourceFile="$(var.Galileo.Client.Win.ProjectDir)\Resources\Logo_Stroke.ico"/>
+   
+    <Property Id="ARPPRODUCTICON" Value="icon.ico" />
+    
+		<MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed."  AllowDowngrades="no" AllowSameVersionUpgrades="no" />
+    
+    <Directory Id="TARGETDIR" Name="SourceDir">
+      <?if $(var.Platform)="x64" ?>
+      <Directory Id="ProgramFiles64Folder">
+        <Directory Id="INSTALLFOLDER" Name="Galileo" />
+      </Directory>
+      <?else ?>
+      <Directory Id="ProgramFilesFolder">
+        <Directory Id="INSTALLFOLDER" Name="Galileo" />
+      </Directory>
+      <?endif ?>
+      <Directory Id="ProgramMenuFolder" />
+      <Directory Id="DesktopFolder" Name="Desktop" />
+    </Directory>
+
+    <DirectoryRef Id="INSTALLFOLDER">
+      <Component Id="GalileoApp" Guid="2ce8301b-5943-4c20-aee7-27b8e5c3a33f">
+        <File Id="Galileo.exe" Source="$(var.Galileo.Client.Win.TargetPath)" KeyPath="yes" Checksum="yes"/>
+      </Component>
+    </DirectoryRef>
+    
+    <DirectoryRef Id="ProgramMenuFolder">
+      <Component Id="ApplicationShortcut" Guid="19ED4E11-4B66-4B81-96DB-5EA68AFC0AD6">
+        <Shortcut Id="ApplicationStartMenuShortcut"
+                  Name="Galileo"
+                  Description="It's My First Time."
+                  Target="[INSTALLFOLDER]Galileo.exe"
+                  WorkingDirectory="INSTALLFOLDER" />
+        <RemoveFolder Id="ApplicationStartMenuShortcut" On="uninstall"/>
+        <RegistryValue Root="HKCU" Key="Software\dotBunny\Galileo" Name="ApplicationShortcut" Type="integer" Value="1" KeyPath="yes"/>
+      </Component>
+    </DirectoryRef>
+
+    <DirectoryRef Id="DesktopFolder">
+      <Component Id="DesktopShortcut" Guid="A68D46FA-D18E-4FCB-A10B-CE351195D682">
+        <Shortcut Id="GalileoDesktopShortcut"
+                  Name="Galileo"
+                  Description="It's My First Time."
+                  Directory="DesktopFolder"
+                  Target="[INSTALLFOLDER]Galileo.exe"
+                  WorkingDirectory="INSTALLFOLDER" />
+        <RegistryValue Root="HKCU" Key="Software\dotBunny\Galileo" Name="DesktopShortcut" Type="integer" Value="1" KeyPath="yes"/>
+      </Component>
+    </DirectoryRef>
+
+    <Feature Id="GalileoInstallation" Title="Galileo" Level="1">
+      <ComponentGroupRef Id="GalileoFiles" />
+      <ComponentRef Id="GalileoApp" />
+      <ComponentRef Id="ApplicationShortcut" />
+    </Feature>
+
+    <Feature Id="GalileoDesktop" Title="Desktop Shortcut" Level="1">
+      <ComponentRef Id="DesktopShortcut" />
+    </Feature>
+    
+    <UI>
+      <UIRef Id="WixUI_Minimal" />
+      <Publish Dialog="ExitDialog"
+            Control="Finish"
+            Event="DoAction"
+            Value="LaunchApplication">WIXUI_EXITDIALOGOPTIONALCHECKBOX = 1 and NOT Installed</Publish>
+    </UI> 
+    <Property Id="WIXUI_EXITDIALOGOPTIONALCHECKBOXTEXT" Value="Launch Galileo" />
+    
+    <WixVariable Id="WixUIBannerBmp" Value="$(var.ProjectDir)\Banner.bmp" />
+    <WixVariable Id="WixUIDialogBmp" Value="$(var.ProjectDir)\Background.bmp" />
+    
+    <Property Id="WixShellExecTarget" Value="[#Galileo.exe]" />
+    <CustomAction Id="LaunchApplication" BinaryKey="WixCA" DllEntry="WixShellExec" Impersonate="yes" />
+
+    <PropertyRef Id="WIX_IS_NETFRAMEWORK_462_OR_LATER_INSTALLED"/>
+    <Condition Message="Galileo requires .NET Framework 4.6.2. Please install the .NET Framework then run this installer again. https://www.microsoft.com/net/download/dotnet-framework-runtime">
+      <![CDATA[Installed OR WIX_IS_NETFRAMEWORK_462_OR_LATER_INSTALLED]]>
+    </Condition>
+ 
+	</Product>
+</Wix>

@@ -1,0 +1,43 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+    <ReleaseVersion>2018.1</ReleaseVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="xunit.runner.console" Version="2.3.1" />
+    <PackageReference Include="xunit" Version="2.3.1" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.3.1" />
+    <PackageReference Include="xunit.runner.reporters" Version="2.3.1" />
+    <PackageReference Include="I18NPortable" Version="0.6.0" />
+    <PackageReference Include="NLipsum" Version="1.1.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Localization\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Resources\Test-English-Sentences.xml" />
+    <None Remove="Resources\Test-English-Words.xml" />
+    <None Remove=".DS_Store" />
+    <None Remove="Resources\Test-Markov-Essay.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\Test-English-Sentences.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Test-English-Words.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Test-Markov-Essay.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Galileo.Vendor\Galileo.Vendor.csproj" />
+    <ProjectReference Include="..\Galileo.Localization\Galileo.Localization.csproj" />
+    <ProjectReference Include="..\Galileo.Core\Galileo.Core.csproj" />
+    <ProjectReference Include="..\Galileo.Client\Galileo.Client.csproj" />
+  </ItemGroup>
+</Project>

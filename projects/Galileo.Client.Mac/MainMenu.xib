@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14109" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14109"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="NSApplication">
+            <connections>
+                <outlet property="delegate" destination="Uw4-XX-kk5" id="mcp-Ie-mcm"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customObject id="371" customClass="NSFontManager"/>
+        <menu title="Main Menu" systemMenu="main" id="29">
+            <items>
+                <menuItem title="Galileo" id="56">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <menu key="submenu" title="Galileo" systemMenu="apple" id="57">
+                        <items>
+                            <menuItem title="About Galileo" id="136">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="OnMenuAbout:" target="Uw4-XX-kk5" id="1mm-Bp-M7H"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Check For Updates ..." id="9Cj-Dh-W9B">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="OnMenuCheckForUpdates:" target="Uw4-XX-kk5" id="iKy-Lq-8LC"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem isSeparatorItem="YES" id="oCA-sA-9bl"/>
+                            <menuItem title="Preferences" keyEquivalent="," id="n1r-aJ-T7B">
+                                <connections>
+                                    <action selector="OnMenuPreferences:" target="Uw4-XX-kk5" id="IHG-mS-7MD"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem isSeparatorItem="YES" id="kVl-tL-A6y"/>
+                            <menuItem title="Quit Galileo" keyEquivalent="q" id="Sae-gF-Hp4">
+                                <connections>
+                                    <action selector="terminate:" target="-1" id="H7p-UA-vdj"/>
+                                </connections>
+                            </menuItem>
+                        </items>
+                    </menu>
+                </menuItem>
+                <menuItem title="Edit" id="Ffx-mv-T79">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <menu key="submenu" title="Edit" systemMenu="apple" id="w7a-6j-Aod">
+                        <items>
+                            <menuItem title="Cut" keyEquivalent="x" id="KvC-Tl-MYP">
+                                <connections>
+                                    <action selector="cut:" target="Uw4-XX-kk5" id="z1b-fp-P3O"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Copy" keyEquivalent="c" id="apB-81-svX">
+                                <connections>
+                                    <action selector="copy:" target="Uw4-XX-kk5" id="kNY-8H-3ZW"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Paste" keyEquivalent="v" id="tNA-Sc-Xdx">
+                                <connections>
+                                    <action selector="paste:" target="Uw4-XX-kk5" id="4Sz-WC-dkJ"/>
+                                </connections>
+                            </menuItem>
+                        </items>
+                    </menu>
+                </menuItem>
+            </items>
+        </menu>
+        <customObject id="Uw4-XX-kk5" userLabel="Delegate" customClass="AppDelegate"/>
+    </objects>
+</document>

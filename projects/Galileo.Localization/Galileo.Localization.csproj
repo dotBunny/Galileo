@@ -1,0 +1,37 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <ReleaseVersion>2018.1</ReleaseVersion>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType></DebugType>
+    <DefineConstants>RELEASE;NETSTANDARD2_0</DefineConstants>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DebugType>full</DebugType>
+    <DefineConstants>TRACE;DEBUG;NETSTANDARD2_0</DefineConstants>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="I18NPortable" Version="0.6.0" />
+    <PackageReference Include="DocumentFormat.OpenXml" Version="2.8.1" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Locales\en-CA.stub" />
+    <None Remove="Locales\fr-CA.stub" />
+    <None Remove="Locales\strings.xlsx" />
+    <None Remove="Locales\keys.stub" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Locales\en-CA.stub" />
+    <EmbeddedResource Include="Locales\fr-CA.stub" />
+    <EmbeddedResource Include="Locales\strings.xlsx" />
+    <EmbeddedResource Include="Locales\keys.stub" />
+  </ItemGroup>
+</Project>

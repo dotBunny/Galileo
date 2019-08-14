@@ -1,0 +1,77 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <Description>Galileo Client Library</Description>
+    <ReleaseVersion>2018.1</ReleaseVersion>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <AssemblyOriginatorKeyFile>..\keys\Galileo.snk</AssemblyOriginatorKeyFile>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'macOS-Debug|AnyCPU' ">
+    <NoWarn>NU1701;1701;1702;1705</NoWarn>
+    <IntermediateOutputPath>obj\Debug\netstandard2.0</IntermediateOutputPath>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\macOS-Debug\netstandard2.0</OutputPath>
+    <DefineConstants>__MACOS__;TRACE;DEBUG;NETSTANDARD2_0</DefineConstants>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile></DocumentationFile>
+    <NoStdLib>true</NoStdLib>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'macOS-Release|AnyCPU' ">
+    <IntermediateOutputPath>obj\Release\netstandard2.0</IntermediateOutputPath>
+    <DebugType></DebugType>
+    <Optimize>true</Optimize>
+    <DefineConstants>__MACOS__;RELEASE;NETSTANDARD2_0;$(BUILD_DEFINE)</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugType>full</DebugType>
+    <DefineConstants>__WINDOWS__;TRACE;DEBUG;NETSTANDARD2_0</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType></DebugType>
+    <DefineConstants>__WINDOWS__;RELEASE;NETSTANDARD2_0;$(BUILD_DEFINE)</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Linux-Debug|AnyCPU' ">
+    <IntermediateOutputPath>obj\Linux-Debug\netstandard2.0</IntermediateOutputPath>
+    <DebugType></DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Linux-Debug\netstandard2.0</OutputPath>
+    <DefineConstants>__LINUX__;TRACE;DEBUG;NETSTANDARD2_0</DefineConstants>
+    <WarningLevel>4</WarningLevel>
+    <AssemblyOriginatorKeyFile></AssemblyOriginatorKeyFile>
+    <NoWarn></NoWarn>
+    <NoStdLib>false</NoStdLib>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Linux-Release|AnyCPU' ">
+    <IntermediateOutputPath>obj\CLI-Release\netstandard2.0</IntermediateOutputPath>
+    <DebugType></DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\CLI-Release</OutputPath>
+    <DefineConstants>__LINUX__;RELEASE;NETSTANDARD2_0;$(BUILD_DEFINE)</DefineConstants>
+    <AssemblyOriginatorKeyFile></AssemblyOriginatorKeyFile>
+    <NoWarn></NoWarn>
+    <NoStdLib>false</NoStdLib>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Galileo.Core\Galileo.Core.csproj" />
+    <ProjectReference Include="..\Galileo.Localization\Galileo.Localization.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
+    <PackageReference Include="Microsoft.Extensions.CommandLineUtils" Version="1.1.1" />
+    <PackageReference Include="I18NPortable" Version="0.6.0" />
+    <PackageReference Include="Xam.Plugins.Settings" Version="4.0.0.7" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Update\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="Validation.cs" />
+    <Compile Remove="Screens\NoUpdatesScreen.cs" />
+    <Compile Remove="Update\UpdateSerialization.cs" />
+  </ItemGroup>
+</Project>

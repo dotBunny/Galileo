@@ -183,54 +183,6 @@ namespace Galileo.Client.Mac
         }
 
         /// <summary>
-        /// Contact licensing server to validate provided license when "Activate" button is clicked on the Auth screen.
-        /// </summary>
-        /// <param name="sender">Button Reference</param>
-        partial void AuthActivateButton_Click(NSButton sender)
-        {
-            // Validate that the entered key is not empty
-            if (authLicenseKeyText.StringValue != string.Empty)
-            {
-                if (LicensingScreen.ActivateButton_Click(authLicenseKeyText.StringValue))
-                {
-                    // Meaningless Messsage
-                    authLicenseStatusText.StringValue = "Client.Auth.Activate.Valid".Translate();
-
-                    // Licensed
-                    SetLicensingState(true);
-
-                    // Change view to preferences
-                    SetWindowState(Instance.State.Hunt);
-
-                    Alert("Client.Auth.Activate.ThankYou".Translate());
-                }
-                else
-                {
-                    Alert("Client.Auth.Activate.Exception".Translate(LicensingScreen.GetStatusMessage()));
-                    SetLicensingState(false);
-                }
-            }
-        }
-
-        /// <summary>
-        /// Open the purchase website when the "Purchase" button is clicked on the Auth screen.
-        /// </summary>
-        /// <param name="sender">Button Reference</param>
-        partial void AuthPurchaseButton_Click(NSButton sender)
-        {
-            LicensingScreen.PurchaseButton_Click();
-        }
-
-        /// <summary>
-        /// Show the Activate screen when the "Activate" button is clicked in the menu
-        /// </summary>
-        /// <param name="sender">Button Reference</param>
-        partial void MenuActivateButton_Click(NSButton sender)
-        {
-            SetWindowState(Instance.State.Licensing);
-        }
-
-        /// <summary>
         /// Show the About screen when the "Galileo Branding" is clicked in the menu
         /// </summary>
         /// <param name="sender">Galileo Logo</param>
@@ -399,16 +351,7 @@ namespace Galileo.Client.Mac
         /// </summary>
         public void OnPasteEvent()
         {
-            switch (CurrentState)
-            {
-                // Paste Key
-                case Instance.State.Licensing:
-                    if (!LicensingScreen.IsGenuine() && NSPasteboard.GeneralPasteboard.GetStringForType(s_pasteBoardTypes[0]) != null)
-                    {
-                        authLicenseKeyText.StringValue = NSPasteboard.GeneralPasteboard.GetStringForType(s_pasteBoardTypes[0]);
-                    }
-                    break;
-            }
+           
         }
 
         /// <summary>
@@ -571,43 +514,6 @@ namespace Galileo.Client.Mac
         partial void PreferencesHelpButton_Click(NSButtonCell sender)
         {
             PreferencesScreen.HelpButton_Click();
-        }
-
-        /// <summary>
-        /// Deactivate the currently activate license
-        /// </summary>
-        /// <param name="sender">Button Reference</param>
-        partial void PreferencesLicenseDeactivateButton_Click(NSButton sender)
-        {
-            // Create Alert Sheet
-            var alert = new NSAlert
-            {
-                AlertStyle = NSAlertStyle.Informational,
-                InformativeText = "Client.Preferences.License.DialogMessage".Translate(),
-                MessageText = "Client.Preferences.License.DialogTitle".Translate()
-            };
-
-            // Add buttons
-            alert.AddButton("Client.Preferences.License.Yes".Translate());
-            alert.AddButton("Client.Preferences.License.No".Translate());
-
-            // Execute
-            alert.BeginSheetForResponse(Window, (result) =>
-            {
-
-                if (result == 1000)
-                {
-                    if (PreferencesScreen.LicenseDeactivateButton_Click())
-                    {
-                        SetLicensingState(false);
-                        SetWindowState(Instance.State.Licensing, true);
-                    }
-                    else
-                    {
-                        Alert("Client.Preferences.License.ErrorMessage".Translate(LicensingScreen.GetStatusMessage()));
-                    }
-                }
-            });
         }
 
         /// <summary>
@@ -887,7 +793,7 @@ namespace Galileo.Client.Mac
 
             // Create our default working hunter
             _huntIndex = HuntHandler.CreateID();
-            Instance.Hunters.Add(_huntIndex, new HuntHandler(_huntIndex, Instance.Profile));
+            Instance.Hunters.Add(_huntIndex, HuntHandler.Create(_huntIndex, Instance.Profile));
             Instance.Hunters[_huntIndex].OnProcessUpdate += OnHuntHandlerUpdate;
             Instance.Hunters[_huntIndex].OnProcessComplete += OnHuntHandlerComplete;
             Instance.Hunters[_huntIndex].OnProcessLogEvent += OnHuntHandlerLogEvent;
@@ -899,25 +805,13 @@ namespace Galileo.Client.Mac
             // Assign custom embeded fonts
             menuPreferencesButtonIconText.Font = _fontAwesomeMenuIcons;
             menuProcessButtonIconText.Font = _fontAwesomeMenuIcons;
-            menuActivateButtonIconText.Font = _fontAwesomeMenuIcons;
             menuUpdatesButtonIconText.Font = _fontAwesomeMenuIcons;
 
             // Populate locale list
 			preferencesGeneralLocaleCombo.AddItems(Localization.LocalizationProvider.SupportedLocalesDescription);
 
-            // Check licensing - already initialized in Instance, this just shows right screen
-            if (LicensingScreen.IsGenuine())
-            {
-                Instance.Log("Client.Mac.MainWindowController.AwakeFromNib", "Product Activated");
-                SetLicensingState(true);
-                SetWindowState(Instance.State.Hunt);
-            }
-            else
-            {
-                Instance.Log("Client.Mac.MainWindowController.AwakeFromNib", "Product NOT Activated");
-                SetLicensingState(false);
-                SetWindowState(Instance.State.Licensing);
-            }
+            SetWindowState(Instance.State.Hunt);
+            
 
             // TOOD: Make window movable by clicking on background elements
             menuBackgroundImage.Window.MovableByWindowBackground = true;
@@ -966,7 +860,6 @@ namespace Galileo.Client.Mac
             // Menu
             menuProcessButtonText.StringValue = "Client.Menu.Process".Translate();
             menuSystemSectionText.StringValue = "Client.Menu.System".Translate().ToUpper();
-            menuActivateButtonText.StringValue = "Client.Menu.Activate".Translate();
             menuPreferencesButtonText.StringValue = "Client.Menu.Preferences".Translate();
             menuUpdatesButtonText.StringValue = "Client.Menu.Updates".Translate();
 
@@ -978,14 +871,6 @@ namespace Galileo.Client.Mac
             aboutThirdPartyLicensesButton.Title = "Client.About.ThirdPartyLicenses".Translate();
             aboutEULAButton.Title = "Client.About.EULA".Translate();
             aboutLogsButton.Title = "Client.About.Logs".Translate();
-
-            // Auth Tab
-            authTitleText.StringValue = "Client.Auth.Title".Translate();
-            authMessageText.StringValue = "Client.Auth.Message".Translate();
-            authLicenseKeyText.PlaceholderString = "Client.Auth.PlaceHolder".Translate();
-            authPriceMessageText.StringValue = "Client.Auth.PriceMessage".Translate();
-            authPurchaseButton.Title = "Client.Auth.Purchase".Translate();
-            authActivateButton.Title = "Client.Auth.Activate".Translate();
 
             // Process Tab
             processTitleText.StringValue = "Client.Process.Title".Translate();
@@ -1049,10 +934,6 @@ namespace Galileo.Client.Mac
 
             preferencesUpdateRestoreDefaultsButton.Title = "Client.Preferences.RestoreDefaults".Translate();
 
-            preferencesLicenseTab.Label = "Client.Preferences.License".Translate();
-            preferencesLicenseMessageText.StringValue = "Client.Preferences.License.Message".Translate();
-            preferencesLicenseDeactivateButton.Title = "Client.Preferences.License.DeactivateInstall".Translate();
-
             // Reset state
 			SetWindowState(stateCache, true);
 
@@ -1112,7 +993,6 @@ namespace Galileo.Client.Mac
                 case Instance.State.Hunt:
 
                     // Update Menu
-                    SetMenuButtonState(menuActivateButtonOverlayImage, menuActivateButtonText, menuActivateButtonIconText,Resources.ActivateIcon);
                     SetMenuButtonState(menuProcessButtonOverlayImage, menuProcessButtonText, menuProcessButtonIconText, Resources.ProcessIcon, true);
                     SetMenuButtonState(menuPreferencesButtonOverlayImage, menuPreferencesButtonText, menuPreferencesButtonIconText, Resources.PreferencesIcon);
                     SetMenuButtonState(menuUpdatesButtonOverlayImage, menuUpdatesButtonText, menuUpdatesButtonIconText, _updateIcon);
@@ -1137,7 +1017,6 @@ namespace Galileo.Client.Mac
                 case Instance.State.Preferences:
 
                     // Update Menu 
-                    SetMenuButtonState(menuActivateButtonOverlayImage, menuActivateButtonText, menuActivateButtonIconText, Resources.ActivateIcon);
                     SetMenuButtonState(menuProcessButtonOverlayImage, menuProcessButtonText, menuProcessButtonIconText, Resources.ProcessIcon);
                     SetMenuButtonState(menuPreferencesButtonOverlayImage, menuPreferencesButtonText, menuPreferencesButtonIconText, Resources.PreferencesIcon, true);
                     SetMenuButtonState(menuUpdatesButtonOverlayImage, menuUpdatesButtonText, menuUpdatesButtonIconText, _updateIcon);
@@ -1227,7 +1106,6 @@ namespace Galileo.Client.Mac
                 case Instance.State.Updates:
 
                     // Update Menu
-                    SetMenuButtonState(menuActivateButtonOverlayImage, menuActivateButtonText, menuActivateButtonIconText, Resources.ActivateIcon);
                     SetMenuButtonState(menuProcessButtonOverlayImage, menuProcessButtonText, menuProcessButtonIconText, Resources.ProcessIcon);
                     SetMenuButtonState(menuPreferencesButtonOverlayImage, menuPreferencesButtonText, menuPreferencesButtonIconText, Resources.PreferencesIcon);
                     SetMenuButtonState(menuUpdatesButtonOverlayImage, menuUpdatesButtonText, menuUpdatesButtonIconText, _updateIcon, true);
@@ -1254,33 +1132,11 @@ namespace Galileo.Client.Mac
                     }
 
                     CurrentState = Instance.State.Updates;
-                    break;
-
-                case Instance.State.Licensing:
-
-                    // Update Menu
-                    SetMenuButtonState(menuActivateButtonOverlayImage, menuActivateButtonText, menuActivateButtonIconText, Resources.ActivateIcon, true);
-                    SetMenuButtonState(menuProcessButtonOverlayImage, menuProcessButtonText, menuProcessButtonIconText, Resources.ProcessIcon);
-                    SetMenuButtonState(menuPreferencesButtonOverlayImage, menuPreferencesButtonText, menuPreferencesButtonIconText, Resources.PreferencesIcon);
-                    SetMenuButtonState(menuUpdatesButtonOverlayImage, menuUpdatesButtonText, menuUpdatesButtonIconText, _updateIcon);
-
-                    CurrentState = Instance.State.Licensing;
-
-                    if (LicensingScreen.IsGenuine())
-                    {
-                        // Switch to preferences because wtf?
-                        SetWindowState(Instance.State.Hunt);
-                    }
-                    else
-                    {
-                        screenTabs.Select(authTab);
-                    }
-                    break;
+                    break;             
 
                 case Instance.State.About:
 
                     // Update Menu (No Selection)
-                    SetMenuButtonState(menuActivateButtonOverlayImage, menuActivateButtonText, menuActivateButtonIconText, Resources.ActivateIcon);
                     SetMenuButtonState(menuProcessButtonOverlayImage, menuProcessButtonText, menuProcessButtonIconText, Resources.ProcessIcon);
                     SetMenuButtonState(menuPreferencesButtonOverlayImage, menuPreferencesButtonText, menuPreferencesButtonIconText, Resources.PreferencesIcon);
                     SetMenuButtonState(menuUpdatesButtonOverlayImage, menuUpdatesButtonText, menuUpdatesButtonIconText, _updateIcon);
@@ -1389,30 +1245,6 @@ namespace Galileo.Client.Mac
                 processTargetPath.Enabled = true;
                 processTotalProgressBar.Hidden = true;
                 processProcessButton.Title = "Client.Process.Process".Translate();
-            }
-        }
-
-        /// <summary>
-        /// Set the licensed state of the application
-        /// </summary>
-        /// <param name="licensed">Are we licensed?</param>
-        void SetLicensingState(bool licensed)
-        {
-            if (licensed)
-            {
-                menuActivateButton.Hidden = true;
-
-                // Disable the Process Process button
-                processProcessButton.Enabled = true;
-                preferencesLicenseDeactivateButton.Enabled = true;
-            }
-            else
-            {
-                menuActivateButton.Hidden = false;
-
-                // Enable the Process Process button
-                processProcessButton.Enabled = false;
-                preferencesLicenseDeactivateButton.Enabled = false;
             }
         }
 

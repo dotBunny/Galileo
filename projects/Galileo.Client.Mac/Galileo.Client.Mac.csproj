@@ -1,232 +1,440 @@
-<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{3C6A0022-451E-4601-A64F-814BFAE7C9A2}</ProjectGuid>
-    <ProjectTypeGuids>{A3F8F2AB-B479-4A4A-A458-A89E7DC349F1};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <OutputType>Exe</OutputType>
-    <RootNamespace>Galileo.Client.Mac</RootNamespace>
-    <AssemblyName>Galileo</AssemblyName>
-    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
-    <TargetFrameworkIdentifier>Xamarin.Mac</TargetFrameworkIdentifier>
-    <MonoMacResourcePrefix>Resources</MonoMacResourcePrefix>
-    <ReleaseVersion>2018.1</ReleaseVersion>
-    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
-    <AssemblyOriginatorKeyFile>..\keys\Galileo.snk</AssemblyOriginatorKeyFile>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <UseSGen>false</UseSGen>
-    <AOTMode>None</AOTMode>
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>__MACOS__;TRACE;__UNIFIED__;DEBUG;</DefineConstants>
-    <CodeSignProvision></CodeSignProvision>
-    <EnablePackageSigning></EnablePackageSigning>
-    <PackageSigningKey>3rd Party Mac Developer Installer</PackageSigningKey>
-    <PackagingExtraArgs></PackagingExtraArgs>
-    <I18n>west</I18n>
-    <MonoBundlingExtraArgs>--nowarn:2006</MonoBundlingExtraArgs>
-    <NoWarn></NoWarn>
-    <CodeSigningKey>Mac Developer</CodeSigningKey>
-    <EnableSGenConc>true</EnableSGenConc>
-    <LinkMode>None</LinkMode>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <UseSGen>false</UseSGen>
-    <AOTMode>None</AOTMode>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>__MACOS__;__UNIFIED__;RELEASE;$(BUILD_DEFINE)</DefineConstants>
-    <MonoBundlingExtraArgs>--nowarn:2006</MonoBundlingExtraArgs>
-    <UseRefCounting>false</UseRefCounting>
-    <CodeSigningKey>Mac Developer</CodeSigningKey>
-    <PackageSigningKey>3rd Party Mac Developer Installer</PackageSigningKey>
-    <I18n>west</I18n>
-    <EnableSGenConc>true</EnableSGenConc>
-  </PropertyGroup>
-  <ItemGroup>
-    <Reference Include="System" />
-    <Reference Include="System.Core" />
-    <Reference Include="Xamarin.Mac" />
-    <Reference Include="System.Net.Http" />
-    <Reference Include="System.IO.Packaging">
-      <HintPath>..\..\packages\System.IO.Packaging.4.4.1\lib\netstandard1.3\System.IO.Packaging.dll</HintPath>
-    </Reference>
-    <Reference Include="DocumentFormat.OpenXml">
-      <HintPath>..\..\packages\DocumentFormat.OpenXml.2.8.1\lib\netstandard1.3\DocumentFormat.OpenXml.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="IxMilia.Dxf">
-      <HintPath>..\..\packages\IxMilia.Dxf.0.7.0\lib\netstandard1.0\IxMilia.Dxf.dll</HintPath>
-    </Reference>
-    <Reference Include="itextsharp">
-      <HintPath>..\..\packages\iTextSharp.5.5.13\lib\itextsharp.dll</HintPath>
-    </Reference>
-    <Reference Include="ICSharpCode.SharpZipLib">
-      <HintPath>..\..\packages\AODL.1.2.0.1\lib\ICSharpCode.SharpZipLib.dll</HintPath>
-    </Reference>
-    <Reference Include="AODL">
-      <HintPath>..\..\packages\AODL.1.2.0.1\lib\AODL.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Extensions.CommandLineUtils">
-      <HintPath>..\..\packages\Microsoft.Extensions.CommandLineUtils.1.1.1\lib\netstandard1.3\Microsoft.Extensions.CommandLineUtils.dll</HintPath>
-    </Reference>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\..\packages\Newtonsoft.Json.11.0.2\lib\netstandard2.0\Newtonsoft.Json.dll</HintPath>
-    </Reference>
-    <Reference Include="I18NPortable">
-      <HintPath>..\..\packages\I18NPortable.0.6.0\lib\netstandard1.1\I18NPortable.dll</HintPath>
-    </Reference>
-    <Reference Include="RtfPipe">
-      <HintPath>..\..\packages\RtfPipe.0.7.0.6\lib\netstandard1.0\RtfPipe.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Xml" />
-    <Reference Include="HtmlAgilityPack">
-      <HintPath>..\..\packages\HtmlAgilityPack.1.8.1\lib\netstandard2.0\HtmlAgilityPack.dll</HintPath>
-    </Reference>
-    <Reference Include="Plugin.Settings">
-      <HintPath>..\..\packages\Xam.Plugins.Settings.4.0.0.7\lib\xamarinmac20\Plugin.Settings.dll</HintPath>
-    </Reference>
-  </ItemGroup>
-  <ItemGroup>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon_512x512%402x.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon_512x512.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon_256x256%402x.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon_256x256.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon_128x128%402x.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon_128x128.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon_32x32%402x.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon_32x32.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon_16x16%402x.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon_16x16.png" />
-    <ImageAsset Include="Assets.xcassets\Elements.spriteatlas\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\Elements.spriteatlas\MenuDivider.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\Elements.spriteatlas\MenuDivider.imageset\line-5f5f5f.png" />
-    <ImageAsset Include="Assets.xcassets\Elements.spriteatlas\GalileoText.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\Elements.spriteatlas\GalileoShield.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\Elements.spriteatlas\GalileoShield.imageset\branding-shield.png" />
-    <ImageAsset Include="Assets.xcassets\Elements.spriteatlas\GalileoText.imageset\branding-title.png" />
-    <ImageAsset Include="Assets.xcassets\Swatches.spriteatlas\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\Color_232528.colorset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\Color_5f5f5f.colorset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\Color_eaf6ff.colorset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\Color_ffa626.colorset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\Color_ffffff.colorset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\Swatches.spriteatlas\Square_232528.imageset\color-232528.png" />
-    <ImageAsset Include="Assets.xcassets\Swatches.spriteatlas\Square_232528.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\Swatches.spriteatlas\Square_ececec.imageset\color-ececec.png" />
-    <ImageAsset Include="Assets.xcassets\Swatches.spriteatlas\Square_ececec.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\Swatches.spriteatlas\Square_ffa626.imageset\color-ffa626.png" />
-    <ImageAsset Include="Assets.xcassets\Swatches.spriteatlas\Square_ffa626.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\dotBunny.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\dotBunny.imageset\dotbunny.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Assets.xcassets\.colorset\" />
-    <Folder Include="Assets.xcassets\.imageset\" />
-    <Folder Include="Assets.xcassets\Branding-Shield.imageset\" />
-    <Folder Include="Assets.xcassets\Branding-Title.imageset\" />
-    <Folder Include="Assets.xcassets\Branding.imageset\" />
-    <Folder Include="Assets.xcassets\Color-54575a.colorset\" />
-    <Folder Include="Assets.xcassets\Color-858688.colorset\" />
-    <Folder Include="Assets.xcassets\Icon-Gear-Active.imageset\" />
-    <Folder Include="Assets.xcassets\Icon-Gear-White.imageset\" />
-    <Folder Include="Assets.xcassets\Icon-Gear.imageset\" />
-    <Folder Include="Assets.xcassets\Icon-Import.imageset\" />
-    <Folder Include="Assets.xcassets\Icon-Target-Active.imageset\" />
-    <Folder Include="Assets.xcassets\Icon-Target-White.imageset\" />
-    <Folder Include="Assets.xcassets\Icon-Target.imageset\" />
-    <Folder Include="Assets.xcassets\Line-5f5f5f.imageset\" />
-    <Folder Include="Assets.xcassets\Line-858688.imageset\" />
-    <Folder Include="Assets.xcassets\Swatch-232528.imageset\" />
-    <Folder Include="Assets.xcassets\Swatch-54575a.imageset\" />
-    <Folder Include="Assets.xcassets\Swatch-5f5f5f.imageset\" />
-    <Folder Include="Assets.xcassets\Swatch-eaf6ff.imageset\" />
-    <Folder Include="Assets.xcassets\Swatch-ececec.imageset\" />
-    <Folder Include="Assets.xcassets\Swatch-ff9600.imageset\" />
-    <Folder Include="Assets.xcassets\Swatch-ffa626.imageset\" />
-    <Folder Include="Assets.xcassets\dotBunny.imageset\" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Info.plist" />
-    <None Include="Entitlements.plist" />
-    <None Include="packages.config">
-      <SubType>Designer</SubType>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Main.cs" />
-    <Compile Include="AppDelegate.cs" />
-    <Compile Include="AppDelegate.designer.cs">
-      <DependentUpon>AppDelegate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="MainWindow.cs" />
-    <Compile Include="MainWindow.designer.cs">
-      <DependentUpon>MainWindow.cs</DependentUpon>
-    </Compile>
-    <Compile Include="MainWindowController.cs" />
-    <Compile Include="MainWindowController.designer.cs">
-      <DependentUpon>MainWindowController.cs</DependentUpon>
-    </Compile>
-    <Compile Include="MainWindowDelegate.cs" />
-    <Compile Include="ConfigDataSource.cs" />
-    <Compile Include="ConfigDelegate.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <InterfaceDefinition Include="MainMenu.xib" />
-    <InterfaceDefinition Include="MainWindow.xib" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Galileo.Client\Galileo.Client.csproj">
-      <Project>{5835841A-D122-4424-AB82-3474A6418E59}</Project>
-      <Name>Galileo.Client</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Galileo.Core\Galileo.Core.csproj">
-      <Project>{36FDC3A8-2234-40EA-83F3-AC75DC3B5AD0}</Project>
-      <Name>Galileo.Core</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Galileo.Localization\Galileo.Localization.csproj">
-      <Project>{D886DD1A-55C8-41BE-B421-9968A7139484}</Project>
-      <Name>Galileo.Localization</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <NativeReference Include="..\..\licensing\TurboActivate\4.0.9.6\macOS\libc++\libTurboActivate.dylib">
-      <Kind>Dynamic</Kind>
-      <SmartLink>False</SmartLink>
-    </NativeReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="..\..\licensing\Galileo\2018.1\Galileo.dat">
-      <Link>Galileo.dat</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="..\..\installers\ReadMe.rtf">
-      <Link>ReadMe.rtf</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </BundleResource>
-    <BundleResource Include="..\..\installers\ThirdPartyLicenses.rtf">
-      <Link>ThirdPartyLicenses.rtf</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </BundleResource>
-    <BundleResource Include="..\..\installers\EULA.rtf">
-      <Link>EULA.rtf</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </BundleResource>
-    <BundleResource Include="..\..\build\font-awesome.otf">
-      <Link>font-awesome.otf</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </BundleResource>
-  </ItemGroup>
-  <Import Project="$(MSBuildExtensionsPath)\Xamarin\Mac\Xamarin.Mac.CSharp.targets" />
-  <!--<Import Project="..\..\packages\NETStandard.Library.2.0.1\build\netstandard2.0\NETStandard.Library.targets" Condition="Exists('..\..\packages\NETStandard.Library.2.0.1\build\netstandard2.0\NETStandard.Library.targets')" />-->
-  <Import Project="..\..\packages\NETStandard.Library.2.0.3\build\netstandard2.0\NETStandard.Library.targets" Condition="Exists('..\..\packages\NETStandard.Library.2.0.3\build\netstandard2.0\NETStandard.Library.targets')" />
-</Project>
+<?xml version="1.0" encoding="utf-8"?>
+
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+  <PropertyGroup>
+
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+
+    <ProjectGuid>{3C6A0022-451E-4601-A64F-814BFAE7C9A2}</ProjectGuid>
+
+    <ProjectTypeGuids>{A3F8F2AB-B479-4A4A-A458-A89E7DC349F1};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+
+    <OutputType>Exe</OutputType>
+
+    <RootNamespace>Galileo.Client.Mac</RootNamespace>
+
+    <AssemblyName>Galileo</AssemblyName>
+
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+
+    <TargetFrameworkIdentifier>Xamarin.Mac</TargetFrameworkIdentifier>
+
+    <MonoMacResourcePrefix>Resources</MonoMacResourcePrefix>
+
+    <ReleaseVersion>2018.1</ReleaseVersion>
+
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+
+    <AssemblyOriginatorKeyFile>..\keys\Galileo.snk</AssemblyOriginatorKeyFile>
+
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+
+    <UseSGen>false</UseSGen>
+
+    <AOTMode>None</AOTMode>
+
+    <DebugSymbols>true</DebugSymbols>
+
+    <DebugType>full</DebugType>
+
+    <OutputPath>bin\Debug\</OutputPath>
+
+    <DefineConstants>__MACOS__;TRACE;__UNIFIED__;DEBUG;</DefineConstants>
+
+    <CodeSignProvision></CodeSignProvision>
+
+    <EnablePackageSigning></EnablePackageSigning>
+
+    <PackageSigningKey>3rd Party Mac Developer Installer</PackageSigningKey>
+
+    <PackagingExtraArgs></PackagingExtraArgs>
+
+    <I18n>west</I18n>
+
+    <MonoBundlingExtraArgs>--nowarn:2006</MonoBundlingExtraArgs>
+
+    <NoWarn></NoWarn>
+
+    <CodeSigningKey>Mac Developer</CodeSigningKey>
+
+    <EnableSGenConc>true</EnableSGenConc>
+
+    <LinkMode>None</LinkMode>
+
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+
+    <UseSGen>false</UseSGen>
+
+    <AOTMode>None</AOTMode>
+
+    <Optimize>true</Optimize>
+
+    <OutputPath>bin\Release\</OutputPath>
+
+    <DefineConstants>__MACOS__;__UNIFIED__;RELEASE;$(BUILD_DEFINE)</DefineConstants>
+
+    <MonoBundlingExtraArgs>--nowarn:2006</MonoBundlingExtraArgs>
+
+    <UseRefCounting>false</UseRefCounting>
+
+    <CodeSigningKey>Mac Developer</CodeSigningKey>
+
+    <PackageSigningKey>3rd Party Mac Developer Installer</PackageSigningKey>
+
+    <I18n>west</I18n>
+
+    <EnableSGenConc>true</EnableSGenConc>
+
+  </PropertyGroup>
+
+  <ItemGroup>
+
+    <Reference Include="System" />
+
+    <Reference Include="System.Core" />
+
+    <Reference Include="Xamarin.Mac" />
+
+    <Reference Include="System.Net.Http" />
+
+    <Reference Include="System.IO.Packaging">
+
+      <HintPath>..\..\packages\System.IO.Packaging.4.5.0\lib\netstandard2.0\System.IO.Packaging.dll</HintPath>
+
+    </Reference>
+
+    <Reference Include="DocumentFormat.OpenXml">
+
+      <HintPath>..\..\packages\DocumentFormat.OpenXml.2.9.1\lib\netstandard1.3\DocumentFormat.OpenXml.dll</HintPath>
+
+    </Reference>
+
+    <Reference Include="Microsoft.CSharp" />
+
+    <Reference Include="IxMilia.Dxf">
+
+      <HintPath>..\..\packages\IxMilia.Dxf.0.7.2\lib\netstandard1.3\IxMilia.Dxf.dll</HintPath>
+
+    </Reference>
+
+    <Reference Include="itextsharp">
+
+      <HintPath>..\..\packages\iTextSharp.5.5.13.1\lib\itextsharp.dll</HintPath>
+
+    </Reference>
+
+    <Reference Include="ICSharpCode.SharpZipLib">
+
+      <HintPath>..\..\packages\AODL.1.2.0.1\lib\ICSharpCode.SharpZipLib.dll</HintPath>
+
+    </Reference>
+
+    <Reference Include="AODL">
+
+      <HintPath>..\..\packages\AODL.1.2.0.1\lib\AODL.dll</HintPath>
+
+    </Reference>
+
+    <Reference Include="Microsoft.Extensions.CommandLineUtils">
+
+      <HintPath>..\..\packages\Microsoft.Extensions.CommandLineUtils.1.1.1\lib\netstandard1.3\Microsoft.Extensions.CommandLineUtils.dll</HintPath>
+
+    </Reference>
+
+    <Reference Include="Newtonsoft.Json">
+
+      <HintPath>..\..\packages\Newtonsoft.Json.12.0.2\lib\netstandard2.0\Newtonsoft.Json.dll</HintPath>
+
+    </Reference>
+
+    <Reference Include="I18NPortable">
+
+      <HintPath>..\..\packages\I18NPortable.0.6.0\lib\netstandard1.1\I18NPortable.dll</HintPath>
+
+    </Reference>
+
+    <Reference Include="RtfPipe">
+
+      <HintPath>..\..\packages\RtfPipe.1.0.7155.29772\lib\netstandard1.0\RtfPipe.dll</HintPath>
+
+    </Reference>
+
+    <Reference Include="System.Xml" />
+
+    <Reference Include="HtmlAgilityPack">
+
+      <HintPath>..\..\packages\HtmlAgilityPack.1.11.12\lib\netstandard2.0\HtmlAgilityPack.dll</HintPath>
+
+    </Reference>
+
+    <Reference Include="Plugin.Settings">
+
+      <HintPath>..\..\packages\Xam.Plugins.Settings.4.0.0.7\lib\xamarinmac20\Plugin.Settings.dll</HintPath>
+
+    </Reference>
+
+  </ItemGroup>
+
+  <ItemGroup>
+
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json" />
+
+    <ImageAsset Include="Assets.xcassets\Contents.json" />
+
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon_512x512%402x.png" />
+
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon_512x512.png" />
+
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon_256x256%402x.png" />
+
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon_256x256.png" />
+
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon_128x128%402x.png" />
+
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon_128x128.png" />
+
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon_32x32%402x.png" />
+
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon_32x32.png" />
+
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon_16x16%402x.png" />
+
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon_16x16.png" />
+
+    <ImageAsset Include="Assets.xcassets\Elements.spriteatlas\Contents.json" />
+
+    <ImageAsset Include="Assets.xcassets\Elements.spriteatlas\MenuDivider.imageset\Contents.json" />
+
+    <ImageAsset Include="Assets.xcassets\Elements.spriteatlas\MenuDivider.imageset\line-5f5f5f.png" />
+
+    <ImageAsset Include="Assets.xcassets\Elements.spriteatlas\GalileoText.imageset\Contents.json" />
+
+    <ImageAsset Include="Assets.xcassets\Elements.spriteatlas\GalileoShield.imageset\Contents.json" />
+
+    <ImageAsset Include="Assets.xcassets\Elements.spriteatlas\GalileoShield.imageset\branding-shield.png" />
+
+    <ImageAsset Include="Assets.xcassets\Elements.spriteatlas\GalileoText.imageset\branding-title.png" />
+
+    <ImageAsset Include="Assets.xcassets\Swatches.spriteatlas\Contents.json" />
+
+    <ImageAsset Include="Assets.xcassets\Color_232528.colorset\Contents.json" />
+
+    <ImageAsset Include="Assets.xcassets\Color_5f5f5f.colorset\Contents.json" />
+
+    <ImageAsset Include="Assets.xcassets\Color_eaf6ff.colorset\Contents.json" />
+
+    <ImageAsset Include="Assets.xcassets\Color_ffa626.colorset\Contents.json" />
+
+    <ImageAsset Include="Assets.xcassets\Color_ffffff.colorset\Contents.json" />
+
+    <ImageAsset Include="Assets.xcassets\Swatches.spriteatlas\Square_232528.imageset\color-232528.png" />
+
+    <ImageAsset Include="Assets.xcassets\Swatches.spriteatlas\Square_232528.imageset\Contents.json" />
+
+    <ImageAsset Include="Assets.xcassets\Swatches.spriteatlas\Square_ececec.imageset\color-ececec.png" />
+
+    <ImageAsset Include="Assets.xcassets\Swatches.spriteatlas\Square_ececec.imageset\Contents.json" />
+
+    <ImageAsset Include="Assets.xcassets\Swatches.spriteatlas\Square_ffa626.imageset\color-ffa626.png" />
+
+    <ImageAsset Include="Assets.xcassets\Swatches.spriteatlas\Square_ffa626.imageset\Contents.json" />
+
+    <ImageAsset Include="Assets.xcassets\dotBunny.imageset\Contents.json" />
+
+    <ImageAsset Include="Assets.xcassets\dotBunny.imageset\dotbunny.png" />
+
+  </ItemGroup>
+
+  <ItemGroup>
+
+    <Folder Include="Assets.xcassets\.colorset\" />
+
+    <Folder Include="Assets.xcassets\.imageset\" />
+
+    <Folder Include="Assets.xcassets\Branding-Shield.imageset\" />
+
+    <Folder Include="Assets.xcassets\Branding-Title.imageset\" />
+
+    <Folder Include="Assets.xcassets\Branding.imageset\" />
+
+    <Folder Include="Assets.xcassets\Color-54575a.colorset\" />
+
+    <Folder Include="Assets.xcassets\Color-858688.colorset\" />
+
+    <Folder Include="Assets.xcassets\Icon-Gear-Active.imageset\" />
+
+    <Folder Include="Assets.xcassets\Icon-Gear-White.imageset\" />
+
+    <Folder Include="Assets.xcassets\Icon-Gear.imageset\" />
+
+    <Folder Include="Assets.xcassets\Icon-Import.imageset\" />
+
+    <Folder Include="Assets.xcassets\Icon-Target-Active.imageset\" />
+
+    <Folder Include="Assets.xcassets\Icon-Target-White.imageset\" />
+
+    <Folder Include="Assets.xcassets\Icon-Target.imageset\" />
+
+    <Folder Include="Assets.xcassets\Line-5f5f5f.imageset\" />
+
+    <Folder Include="Assets.xcassets\Line-858688.imageset\" />
+
+    <Folder Include="Assets.xcassets\Swatch-232528.imageset\" />
+
+    <Folder Include="Assets.xcassets\Swatch-54575a.imageset\" />
+
+    <Folder Include="Assets.xcassets\Swatch-5f5f5f.imageset\" />
+
+    <Folder Include="Assets.xcassets\Swatch-eaf6ff.imageset\" />
+
+    <Folder Include="Assets.xcassets\Swatch-ececec.imageset\" />
+
+    <Folder Include="Assets.xcassets\Swatch-ff9600.imageset\" />
+
+    <Folder Include="Assets.xcassets\Swatch-ffa626.imageset\" />
+
+    <Folder Include="Assets.xcassets\dotBunny.imageset\" />
+
+  </ItemGroup>
+
+  <ItemGroup>
+
+    <None Include="Info.plist" />
+
+    <None Include="Entitlements.plist" />
+
+    <None Include="packages.config">
+
+      <SubType>Designer</SubType>
+
+    </None>
+
+  </ItemGroup>
+
+  <ItemGroup>
+
+    <Compile Include="Main.cs" />
+
+    <Compile Include="AppDelegate.cs" />
+
+    <Compile Include="AppDelegate.designer.cs">
+
+      <DependentUpon>AppDelegate.cs</DependentUpon>
+
+    </Compile>
+
+    <Compile Include="Properties\AssemblyInfo.cs" />
+
+    <Compile Include="MainWindow.cs" />
+
+    <Compile Include="MainWindow.designer.cs">
+
+      <DependentUpon>MainWindow.cs</DependentUpon>
+
+    </Compile>
+
+    <Compile Include="MainWindowController.cs" />
+
+    <Compile Include="MainWindowController.designer.cs">
+
+      <DependentUpon>MainWindowController.cs</DependentUpon>
+
+    </Compile>
+
+    <Compile Include="MainWindowDelegate.cs" />
+
+    <Compile Include="ConfigDataSource.cs" />
+
+    <Compile Include="ConfigDelegate.cs" />
+
+  </ItemGroup>
+
+  <ItemGroup>
+
+    <InterfaceDefinition Include="MainMenu.xib" />
+
+    <InterfaceDefinition Include="MainWindow.xib" />
+
+  </ItemGroup>
+
+  <ItemGroup>
+
+    <ProjectReference Include="..\Galileo.Client\Galileo.Client.csproj">
+
+      <Project>{5835841A-D122-4424-AB82-3474A6418E59}</Project>
+
+      <Name>Galileo.Client</Name>
+
+    </ProjectReference>
+
+    <ProjectReference Include="..\Galileo.Core\Galileo.Core.csproj">
+
+      <Project>{36FDC3A8-2234-40EA-83F3-AC75DC3B5AD0}</Project>
+
+      <Name>Galileo.Core</Name>
+
+    </ProjectReference>
+
+    <ProjectReference Include="..\Galileo.Localization\Galileo.Localization.csproj">
+
+      <Project>{D886DD1A-55C8-41BE-B421-9968A7139484}</Project>
+
+      <Name>Galileo.Localization</Name>
+
+    </ProjectReference>
+
+  </ItemGroup>
+
+  <ItemGroup>
+
+    <BundleResource Include="..\..\installers\ReadMe.rtf">
+
+      <Link>ReadMe.rtf</Link>
+
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+
+    </BundleResource>
+
+    <BundleResource Include="..\..\installers\ThirdPartyLicenses.rtf">
+
+      <Link>ThirdPartyLicenses.rtf</Link>
+
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+
+    </BundleResource>
+
+    <BundleResource Include="..\..\installers\EULA.rtf">
+
+      <Link>EULA.rtf</Link>
+
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+
+    </BundleResource>
+
+    <BundleResource Include="..\..\build\font-awesome.otf">
+
+      <Link>font-awesome.otf</Link>
+
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+
+    </BundleResource>
+
+  </ItemGroup>
+
+  <Import Project="$(MSBuildExtensionsPath)\Xamarin\Mac\Xamarin.Mac.CSharp.targets" />
+
+  <!--<Import Project="..\..\packages\NETStandard.Library.2.0.1\build\netstandard2.0\NETStandard.Library.targets" Condition="Exists('..\..\packages\NETStandard.Library.2.0.1\build\netstandard2.0\NETStandard.Library.targets')" />-->
+
+  <Import Project="..\..\packages\NETStandard.Library.2.0.3\build\netstandard2.0\NETStandard.Library.targets" Condition="Exists('..\..\packages\NETStandard.Library.2.0.3\build\netstandard2.0\NETStandard.Library.targets')" />
+
+</Project>
+

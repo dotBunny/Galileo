@@ -1,0 +1,9 @@
+{
+    "date": "May 11, 2018",
+    "win": "http://galileo.education/files/2018.1.1/Galileo-2018.1.1.msi",
+    "win-size": "6.5 MB",
+    "mac": "http://galileo.education/files/2018.1.1/Galileo-2018.1.1.pkg",
+    "mac-size": "26.9 MB",
+    "changelog": "http://galileo.education/files/2018.1.1/changelog-2018.1.1.txt",
+    "message": "Our first mid product cycle patch release for Galileo brings to the table support for more file formats and a bunch of user experience improvements."
+}

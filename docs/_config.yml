@@ -1,0 +1,59 @@
+# Jekyll settings
+plugins:
+  - jekyll-paginate
+  - jekyll-sitemap
+  - jekyll-feed
+  - jekyll-redirect-from
+
+kramdown:
+  input: GFM
+
+excerpt_separator: "<!-- more -->"
+
+# Compress SCSS
+sass:
+    style: compressed
+
+linking:
+  remote: true
+
+# Exclude Files
+exclude:
+  - host.bat
+  - setup.bat
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - CNAME
+  - demo.html
+  
+linking:
+  remote: true
+
+# Site settings
+title: Galileo
+
+tagline: Academic Integrity Checker
+email: "support@dotbunny.com"
+description: A plagiarism detection system which advises on areas of concern for student submissions in the realm of academic integrity. It will hunt down cheaters.
+keywords: academic integrity, cheating, plagiarism, validator, hunt
+
+url: "http://galileo.education" # the base hostname & protocol for your site
+baseurl: ""
+
+# SEO Settings
+author:             dotbunny
+facebook-pageid:    113659838662758
+social-image:       /content/img/social/galileo-orange.png
+
+# Compression
+compress_html:
+  comments: ["<!-- ", " -->"]
+
+# Build settings
+markdown: kramdown
+
+# Colors
+colors:
+  galileo:          "#ff9600"
+     

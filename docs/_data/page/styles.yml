@@ -1,0 +1,12 @@
+- name:         Bootstrap
+  local:        "/content/css/bootstrap.min.css"
+  external:     "https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css"
+
+- name:         Font Awesome
+  local:        "/content/css/font-awesome.min.css"
+  external:     "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+  defer:        true
+
+- name:         Marvel CSS Devices
+  local:        "/content/css/devices.min.css"
+  defer:        true

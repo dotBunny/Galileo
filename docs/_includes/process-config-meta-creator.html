@@ -1,0 +1,28 @@
+<div class="typography-article table-responsive spacer-bottom">
+    <table class="table text-left">
+        <tbody>
+            <tr>
+                <th class="col-expand">Process Options</th>
+                <th class="col-110 text-left">Type</th>
+                <th class="col-110 text-left">Default</th>
+            </tr>
+            <tr>
+                <td>Check.Meta.Creator.Enabled</td>
+                <td>Boolean</td>
+                <td>True</td>
+            </tr>
+            <tr>
+                <td colspan="3" class="tbl-desc">A <em>true/false</em> setting of if the <em>meta creator</em> information should be compared againt other submissions.</td>
+            </tr>
+            <tr>
+                <td>Check.Meta.Creator.Weight</td>
+                <td>Float</td>
+                <td>0.95</td>
+            </tr>
+            <tr>
+                <td colspan="3" class="tbl-desc">{% include process-config-weighting-default.html %}</td>
+            </tr>
+            {% include process-config-shared-ignored-usernames.html %}
+        </tbody>
+    </table>
+</div>

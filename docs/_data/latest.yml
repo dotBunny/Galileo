@@ -1,0 +1,11 @@
+version:                  "2018.1.1"
+spec-file:                "/files/2018.1.1/spec.json"
+release-date:             "May 11, 2018"
+release-date-short:       "2018-05-11"
+changelog:                "/kb/release/2018.1.1/"
+tagline:                  "The initial release of Galileo for public consumption. A humble beginning in movement towards providing educators with innovative and progressive software."
+# Download Links
+current-macos-link:       "http://galileo.education/files/2018.1.1/Galileo-2018.1.1.pkg"
+current-macos-size:       "26.8 MB"
+current-windows-link:     "http://galileo.education/files/2018.1.1/Galileo-2018.1.1.msi"
+current-windows-size:     "6.3 MB"

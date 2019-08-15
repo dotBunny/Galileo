@@ -1,0 +1,26 @@
+
+
+.page-404 .table-view {height: 100%; position: relative;}
+.page-404 .cell-view {vertical-align: middle;}
+.page-404 .row-view:first-child, .page-404 .row-view:last-child{height: 40px;}
+
+.copyright-404 {text-align: center; padding: 25px 0;}
+.copyright-404 .copyright{margin-bottom: 0; color: #b4b4b4;}
+.copyright-404 .copyright a{color: $galileo-orange-trans;}
+
+.logo-404 {text-align: center; padding: 20px 0;}
+.logo-404 .logo{display: inline-block;}
+.logo-404 .logo img{display: block; max-height: 40px;}
+.copyright-404 .copyright a:hover{color: #fff!important;}
+
+.content-404{text-align: center; max-width: 500px; padding: 10px 20px; margin: 0 auto; text-align: center; position: relative; margin-bottom: 20px;}
+.content-404 .title{font-size: 170px; line-height: 170px; color: $galileo-orange; font-family: $default-font-family; font-weight: $black-font-weight;}
+.content-404 .title a, .content-404 .title a:visited { color: $galileo-orange-trans; }
+.content-404 .title a:hover { color: $galileo-orange; }
+.content-404 .description{font-family: $default-font-family; font-size: 18px; line-height: 24px; color: #b4b4b4;}
+.content-404 .description a{color: $galileo-orange;}
+.content-404 .description a:hover{color: #fff!important;}
+
+@media (max-width: 767px) {
+  .content-404 .title{font-size: 70px; line-height: 70px;}
+}

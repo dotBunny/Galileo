@@ -1,0 +1,27 @@
+New Features
+============
+
+Preference Updates
+------------------
+With Galileo not caring about the language submissions are in, we thought it might be important to allow for the **localization** of the educator’s experience as well. We can now easily add translations to the user interface. For this initial feature release, we have had the bulk of our front facing content translated to French.
+
+Want to try things a little ahead of our normal release schedule? A new option **update channel** setting in the preferences allows you to determine what channel of updates your installation follows. This is meant for our amazing testers and those willing to be in the trenches of development with us.
+
+More Command-Line Options
+-------------------------
+With the addition of saving the size and location of the window, we thought it appropriate to add a hard reset to those settings should some situation arise that might require it. We’ve also included a way to set the localization from the <a href="{{ site.data.kb.command-line }}" title="Command-Line Options">command-line</a> as well.
+
+More File Formats
+-----------------
+We looked at our competitors' offerings and saw an opening to eclipse their supported file formats by adding a few that we simply thought no one used anymore. We've added **Plain Text** (.txt), **Rich Text** (.rtf), **WordPerfect** (.wpd), **PowerPoint** (.pptx) and **Hypertext Markup Language** (.html) <a href="{{ site.data.kb.file-formats }}" title="Supported File Formats">support</a> in this release, and are evaluating even more formats to add in the future.
+
+Updates
+=======
+
+UI Cleanup
+----------
+Those background logos on the screen were distracting and never seemed to feel right. Poof! Gone. We also took a hard look at how copy and pasting was behaving across platforms and added some polish. You now can paste your license key into the box on macOS for example. Those ugly buttons on Windows received a bit of love as well, switching over to a more native feel. You might also notice that the preferences screen has a more familiar feel now. We revisited native operating system preferences screens and made subtle changes to each platform to bring it in line with what users would expect. While this moves away from the identicalness of look and feel on that screen, we felt that it was an appropriate move given the context of the screen.
+
+Culling
+-------
+We hunted down all the extra bits of data in the packages left over from development and made sure it found its way to the door. This leads to a small footprint in memory as well.

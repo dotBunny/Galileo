@@ -1,0 +1,25 @@
+{% for script in site.data.page.scripts.default %}
+    {% if site.linking.remote and script.external %}
+    <script{% if script.async == true %} async{% endif %}{% if script.defer == true %} defer{% endif %} src="{{ script.external }}" {% if script.noorigin %}{% else %}crossorigin="anonymous"{% endif %}{% if script.integrity %} integrity="{{ script.integrity }}"{% endif %}{% if script.charset %} charset="{{ script.charset }}"{% endif %}></script>
+    {% elsif script.local%}
+    <script{% if script.async == true %} async{% endif %}{% if script.defer == true %} defer{% endif %} src="{{ script.local | prepend: site.baseurl }}"{% if script.integrity %} integrity="{{ script.integrity }}"{% endif %}{% if script.charset %} charset="{{ script.charset }}"{% endif %}></script>
+    {% endif %}
+    {% if script.block %}
+    <script>{{ script.block }}</script>
+    {% endif %}
+{% endfor %}
+
+{% for script in site.data.page.scripts.[page.code] %}
+    {% if site.linking.remote and script.external %}
+    <script{% if script.async == true %} async{% endif %}{% if script.defer == true %} defer{% endif %} src="{{ script.external }}" {% if script.noorigin %}{% else %}crossorigin="anonymous"{% endif %}{% if script.integrity %} integrity="{{ script.integrity }}"{% endif %}{% if script.charset %} charset="{{ script.charset }}"{% endif %}></script>
+    {% elsif script.local == blank  %}
+    <script{% if script.async == true %} async{% endif %}{% if script.defer == true %} defer{% endif %} src="{{ script.external }}" {% if script.noorigin %}{% else %}crossorigin="anonymous"{% endif %}{% if script.integrity %} integrity="{{ script.integrity }}"{% endif %}{% if script.charset %} charset="{{ script.charset }}"{% endif %}></script>
+    {% elsif script.local %}
+    <script{% if script.async == true %} async{% endif %}{% if script.defer == true %} defer{% endif %} src="{{ script.local | prepend: site.baseurl }}"{% if script.integrity %} integrity="{{ script.integrity }}"{% endif %}{% if script.charset %} charset="{{ script.charset }}"{% endif %}></script>
+    {% endif %}
+    {% if script.block %}
+    <script>{{ script.block }}</script>
+    {% endif %}
+{% endfor %}
+
+

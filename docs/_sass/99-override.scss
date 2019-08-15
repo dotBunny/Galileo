@@ -1,0 +1,136 @@
+
+.full-width
+{
+    width: 100% !important;
+}
+
+@media (min-width: 1200px){
+    .mob-only { display: none;}
+}
+
+.item-icon
+{
+    font-size: 28px;
+    line-height: 32px;
+}
+.item-icon-big
+{
+    font-size: 48px;
+    line-height: 50px;
+}
+.tab-background
+{
+    line-height: 0px;
+    font-size: 200px;
+}
+
+
+.marvel-device .screen
+{
+    background-image: url(/content/img/backgrounds/chairs-empty.jpg);;
+}
+
+// 960x600
+.marvel-device .screen img
+{
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+@media (max-width: 1199px) {
+    .marvel-device.macbook {
+        width: 800px;
+        height: 500px;
+        padding: 37px 37px 63px;
+    }
+    .marvel-device.macbook .bottom-bar,
+    .marvel-device.macbook .top-bar
+    {
+        top: 567px;
+        width: calc(100% + 2 * 58px);
+        left: -58px;
+        
+    }
+    .marvel-device-wrap
+    {
+        height: 729px;
+    }
+
+    .marvel-device.macbook .camera
+    {
+        width: 8px;
+        height: 8px;
+        top: 17px;
+    }
+
+    .marvel-device.macbook .bottom-bar
+    {
+        height: 22px;
+    }
+    .marvel-device.macbook .top-bar
+    {
+        border-bottom-left-radius: 90px 14px;
+        height: 33px;
+        border-bottom-right-radius: 90px 14px;
+    }
+    .marvel-device.macbook .top-bar:before
+    {
+        height: 20px;
+    }
+    .marvel-device.macbook .top-bar:after
+    {
+        height: 13px;
+    }
+}
+@media (max-width: 991px) {
+
+    .marvel-device.macbook {
+        width: 600px;
+        height: 375px;
+        padding: 28px 28px 47px;
+    }
+    .marvel-device.macbook .bottom-bar,
+    .marvel-device.macbook .top-bar
+    {
+        top: 425px;
+        width: calc(100% + 2 * 43px);
+        left: -43px;
+    }
+    .marvel-device-wrap
+    {
+        height: 560px;
+    }
+    .marvel-device.macbook .camera
+    {
+        width: 6px;
+        height: 6px;
+        top: 12px;
+    }
+
+
+    .marvel-device.macbook .bottom-bar
+    {
+        height: 16px;
+    }
+    .marvel-device.macbook .top-bar
+    {
+        border-bottom-left-radius: 90px 14px;
+        height: 25px;
+        border-bottom-right-radius: 90px 14px;
+    }
+    .marvel-device.macbook .top-bar:before
+    {
+        height: 15px;
+    }
+    .marvel-device.macbook .top-bar:after
+    {
+        height: 10px;
+    }
+}
+
+.f-r
+{
+    float: right !important;
+}

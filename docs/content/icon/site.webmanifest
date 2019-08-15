@@ -1,0 +1,20 @@
+{
+    "name": "Galileo",
+    "short_name": "Galileo",
+    "icons": [
+        {
+            "src": "/content/icon/android-chrome-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "/content/icon/android-chrome-512x512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ],
+    "theme_color": "#ff9600",
+    "background_color": "#ff9600",
+    "start_url": "http://galileo.education",
+    "display": "standalone"
+}

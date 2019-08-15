@@ -1,0 +1,16 @@
+{% for css in site.data.page.styles %}
+    {% if css.defer %}
+        {% if site.linking.remote and css.external and css.defer %}
+        <link rel="stylesheet" href="{{ css.external }}" type="text/css" crossorigin="anonymous"{% if css.integrity %} integrity="{{ css.integrity }}"{% endif %}>
+        {% else %}
+        <link rel="stylesheet" href="{{ css.local | prepend: site.baseurl }}" type="text/css">
+        {% endif %}
+    {% endif %}
+{% endfor %}
+<link rel="stylesheet" href="{{ "/content/css/post.css" | prepend: site.baseurl }}" type="text/css">
+
+{% if page.script %}
+  {% include page-scripts.html script=page.script %}
+{% else %}
+  {% include page-scripts.html %}
+{% endif %}

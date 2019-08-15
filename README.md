@@ -1,4 +1,6 @@
 # Galileo
+Currently the project is being moved entirely onto GitHub, and it's associated portals. It is expected to be completely moved over by September 2019.
+
 ## Marking Simplified
 __In the time it takes to make a cup of coffee, you can automatically evaluate assignments for violations of academic integrity, leaving you to focus on the important part.__
 

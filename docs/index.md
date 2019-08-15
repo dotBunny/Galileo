@@ -14,7 +14,7 @@ date-created:       2018-03-30
             <div class="col-md-8 col-md-offset-2 type-1-center">
                 <article class="big white table">
                     <h1 class="h1">Marking Simplified</h1>
-                    <p>In the time it takes to make a cup of coffee you can <em>automatically</em> evaluate assignments for violations of academic integrity, leaving you to focus on the important part.</p>
+                    <p>In the time it takes to make a cup of coffee, you can <em>automatically</em> evaluate assignments for violations of academic integrity, leaving you to focus on the important part.</p>
                     <a href="{{ site.data.links.getting-started }}" class="button open-video-popup" data-src="{{ site.data.embed.getting-started }}" title="Getting Started Video"><span><i class="fa fa-play" aria-hidden="true"></i> Getting Started</span></a>
                     <a id="banner-purchase" href="{{ site.data.links.download }}" class="button" title="Download"><span><i class="fa fa-download" aria-hidden="true"></i> Download</span></a>
                 </article>

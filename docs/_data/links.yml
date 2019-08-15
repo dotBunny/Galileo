@@ -1,6 +1,6 @@
 
 # Site Links
-support:                  "/wiki/"
+support:                  "https://github.com/dotBunny/Galileo/wiki"
 
 # dotBunny Links
 privacy-policy:          "http://dotbunny.com/legal/privacy/"
@@ -9,12 +9,12 @@ contact:                 "http://dotbunny.com/contact/"
 
 
 # Supporting Services
-tickets:                  "http://support.dotbunny.com/"
-roadmap:                  "https://trello.com/b/TEhN8dzz"
-videos:                   "https://vimeo.com/album/5070805"
+tickets:                  "https://github.com/dotBunny/Galileo/issues"
+roadmap:                  "https://github.com/dotBunny/Galileo/projects/1"
+videos:                   "https://www.youtube.com/playlist?list=PLGCr-lOuna_mUSPk-Lc_DsgWlGiJgcprD"
 
 report:                   "http://galileo.education/files/2018.1/report-00.html"
 
-getting-started:          "#"
+getting-started:          "https://github.com/dotBunny/Galileo/wiki/Getting-Started/"
 file-formats:             "#"
-download:                 "#"
+download:                 "https://github.com/dotBunny/Galileo/releases"

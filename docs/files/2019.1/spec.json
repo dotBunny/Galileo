@@ -1,0 +1,9 @@
+{
+    "date": "August 8, 2019",
+    "win": "https://github.com/dotBunny/Galileo/releases/download/2019.1.0/Galileo-2019.1.0.msi",
+    "win-size": "6.5 MB",
+    "mac": "https://github.com/dotBunny/Galileo/releases/download/2019.1.0/Galileo-2019.1.0.pkg",
+    "mac-size": "26.9 MB",
+    "changelog": "http://galileo.education/files/2019.1/changelog-2019.1.txt",
+    "message": "Open Source Edition"
+}

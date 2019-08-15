@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 22.0.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.0" id="Galileo" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 1024 1024" style="enable-background:new 0 0 1024 1024;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill-rule:evenodd;clip-rule:evenodd;fill:#FF9600;}
+	.st1{opacity:0.85;fill-rule:evenodd;clip-rule:evenodd;fill:#FF9600;}
+</style>
+<g id="G">
+	<g id="Right">
+		<g id="Top">
+			<polygon id="Top_2_" class="st0" points="824,165 512,165 512,100 889,100 			"/>
+			<polygon id="Down_6_" class="st0" points="824,295 824,165 889,100 889,295 			"/>
+		</g>
+		<g id="Bottom">
+			<polygon id="Angle_3_" class="st0" points="889.1,707 512,924.7 512,848 824.1,669 			"/>
+			<polygon id="Top_1_" class="st0" points="824,425 512,425 512,360 889,360 			"/>
+			<polygon id="Down_2_" class="st0" points="889,707 889,360 824,425 824,669 			"/>
+		</g>
+	</g>
+	<g id="Left_1_">
+		<rect id="Bar_1_" x="265" y="360" class="st1" width="247" height="65"/>
+		<g id="Outer">
+			<polygon id="Angle_2_" class="st1" points="135,707 512,924.7 512,848 200,669 			"/>
+			<polygon id="Down_7_" class="st1" points="512,165 200,165 135,100 512,100 			"/>
+			<polygon id="Down_8_" class="st1" points="135,707 135,100 200,165 200,669 			"/>
+		</g>
+	</g>
+</g>
+<g id="Crest">
+	<path class="st0" d="M512,490h247v141L512,772V625"/>
+	<path class="st1" d="M265,490h247v128v154L265,631"/>
+</g>
+<g id="Line">
+	<rect id="RightLine_1_" x="512" y="230" class="st0" width="247" height="65"/>
+	<rect id="LeftLine_1_" x="265" y="230" class="st1" width="247" height="65"/>
+</g>
+</svg>

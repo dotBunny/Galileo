@@ -1,0 +1,41 @@
+---
+sitemap:            false
+permalink:          404.html
+---
+<!DOCTYPE html>
+<html lang="en">
+{% include page-head.html %}
+<body class="page-404">
+    <div class="canvas-overflow" style="background-image: url(/content/img/backgrounds/chairs-empty.jpg);">
+        <canvas class="canvas-background"></canvas>
+        <div class="table-view">
+            <div class="row-view">
+                <div class="cell-view">
+                    <div class="logo-404">
+                        <a href="/" class="logo"><img src="/content/img/branding/galileo-title.png" alt="" /></a>
+                    </div>
+                </div>
+            </div>
+            <div class="row-view">
+                <div class="cell-view">
+                    <div class="content-404">
+                        <div class="title"><a href="/" title="Galileo Homepage">404</a></div>
+                        <div class="description">The page you are looking for has gone missing.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="row-view">
+                <div class="cell-view">
+                    <div class="copyright-404">
+                        <div class="copyright">{% include copyright.html %}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% include page-scripts.html %}
+<script defer src="/content/js/page-404.min.js"></script>
+    
+</body>
+</html>

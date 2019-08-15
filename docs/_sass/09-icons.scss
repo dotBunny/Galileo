@@ -1,0 +1,35 @@
+.item-icon
+{
+    width: 30px;
+    height: 30px;
+    float: left;
+    color: $galileo-orange-trans;
+}
+.item-icon-big
+{
+    width: 50px;
+    height: 50px;
+    float: left;
+    color: $galileo-orange-trans;
+    margin-top:45px;
+    margin-left: 5px;
+}
+
+.item-icon-no-left
+{
+    margin-left: 0px;
+}
+.item-icon-10-left
+{
+    margin-left: 10px;
+}
+
+@media (max-width: 767px) {
+
+
+    .item-icon-big 
+    {
+    margin-top: 5px;
+    margin-left: 22px;
+    }
+}

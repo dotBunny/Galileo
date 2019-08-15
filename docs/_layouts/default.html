@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+{% include page-head.html %}
+    <body><noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TDT3PBP" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+        <script>
+            (function(w, d){
+                var b = d.getElementsByTagName('body')[0];
+                var s = d.createElement("script"); s.async = true;
+                var v = !("IntersectionObserver" in w) ? "8.7.1" : "10.5.2";
+                s.src = "https://cdnjs.cloudflare.com/ajax/libs/vanilla-lazyload/" + v + "/lazyload.min.js";
+                w.lazyLoadOptions = { elements_selector: "img, .lazy" };
+                b.appendChild(s);
+            }(window, document));
+        </script>
+{% include page-header.html %}
+    <div id="content-wrapper">
+        <div class="blocks-container">
+            {{ content }}
+{% include page-footer.html %}
+            <!-- POPUP "VIDEO" -->
+            <div class="video-popup">
+                <span></span>
+                <span></span>
+                <iframe src="#" title="Video Pop-up"></iframe>
+                <a href="#"><div class="close-parent"><div class="video-popup-close"><i class="fa fa-times" aria-hidden="true"></i> Close</div></div></a>
+            </div>
+        </div>  
+    </div>
+{% include page-foot.html %}
+  </body>
+</html>

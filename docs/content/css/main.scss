@@ -1,0 +1,68 @@
+---
+# Only the main Sass file needs front matter (the dashes are enough)
+---
+@charset "utf-8";
+
+// Define Colors
+$black:             rgb(0,0,0);
+$white:             rgb(255,255,255);
+$galileo-orange:    rgb(255,150,0);
+$galileo-orange-trans:    rgba(255,150,0,0.85);
+$light-gray:        rgb(204,204,204);
+$blue:              rgb(12,93,165);// #0C5DA5
+
+$button-radius:     0px;
+$tag-radius:        4px;
+
+// Social Media Coloring
+$social-facebook:   rgb(59, 89, 152);
+$social-twitter:    rgb(85, 172, 238);
+$social-google:     rgb(221, 75, 57);
+$social-vimeo:      rgb(26,183,234);
+$social-instagram:  rgb(214,36,159);
+$social-linkedin:   rgb(0, 123, 181);
+$social-twitch:     rgb(100, 65, 164);
+
+$line-size:         2px;
+
+// Fonts
+$default-font-family:   "proxima-nova", sans-serif;
+$bold-font-weight:      700;
+$black-font-weight:     900;
+
+$margin-small:      10px;
+$margin-big:        50px;
+
+$big-font-size:             18px;
+$normal-font-size:          16px;
+$small-font-size:           14px;
+$extrasmall-font-size:      12px;
+
+
+// Use media queries like this:
+// @include media-query($on-palm) {
+//     .wrapper {
+//         padding-right: $spacing-unit / 2;
+//         padding-left: $spacing-unit / 2;
+//     }
+// }
+@mixin media-query($device) {
+    @media screen and (max-width: $device) {
+        @content;
+    }
+}
+
+// Import partials from `sass_dir` (defaults to `_sass`)
+@import
+        "01-fonts",
+        "02-style-reset",
+        "03-global-settings",
+        "04-header",
+        "05-footer",
+        "06-home",
+        "09-icons",
+        "base",
+        "08-page-home",
+        "10-kb",
+        "11-404"
+;

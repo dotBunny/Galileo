@@ -1,0 +1,43 @@
+<div class="typography-article table-responsive spacer-bottom">
+    <table class="table text-left">
+        <tbody>
+            <tr>
+                <th class="col-expand">Process Options</th>
+                <th class="col-110 text-left">Type</th>
+                <th class="col-110 text-left">Default</th>
+            </tr>
+            <tr>
+                <td>Check.Content.Enabled</td>
+                <td>Boolean</td>
+                <td>True</td>
+            </tr>
+            <tr>
+                <td colspan="3" class="tbl-desc">A <em>true/false</em> setting of if the <em>content similarity</em> is checked against other submissions.</td>
+            </tr>
+            <tr>
+                <td>Check.Content.MaximumLength</td>
+                <td>Integer</td>
+                <td>10000</td>
+            </tr>
+            <tr>
+                <td colspan="3" class="tbl-desc">The maximum character length of content to evaluate and process. Any content over this amount will be ignored when processing. This value is set to improve preformance times, but at a cost that only up to so much of an individual submission is checked.</td>
+            </tr>
+            <tr>
+                <td>Check.Content.Threshold</td>
+                <td>Float</td>
+                <td>0.9</td>
+            </tr>
+            <tr>
+                <td colspan="3" class="tbl-desc">{% include process-config-threshold.html %}</td>
+            </tr>
+            <tr>
+                <td>Check.Content.Weight</td>
+                <td>Float</td>
+                <td>0.7</td>
+            </tr>
+            <tr>
+                <td colspan="3" class="tbl-desc">{% include process-config-weighting-default.html %}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

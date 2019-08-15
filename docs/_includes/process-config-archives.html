@@ -1,0 +1,28 @@
+
+<div class="typography-article table-responsive spacer-bottom">
+    <table class="table text-left">
+        <tbody>
+            <tr>
+                <th class="col-expand">Process Options</th>
+                <th class="col-110 text-left">Type</th>
+                <th class="col-110 text-left">Default</th>
+            </tr>
+            <tr>
+                <td>Process.Archives.Extract</td>
+                <td>Boolean</td>
+                <td>True</td>
+            </tr>
+            <tr>
+                <td colspan="3" class="tbl-desc">A <em>true/false</em> setting of if any potential archives should be extracted when found in the target folder or its subfolders. Archives are extracted to a new folder within the target folder (and it's subfolders), given a unique name based on a hash of the archives path.</td>
+            </tr>
+            <tr>
+                <td>Process.Archives.Delete</td>
+                <td>Boolean</td>
+                <td>True</td>
+            </tr>
+            <tr>
+                <td colspan="3" class="tbl-desc">A <em>true/false</em> setting of if extracted archives should be deleted after extraction. Often the archive remains locked and is unable to be deleted resulted in a message in the log file. This is a minor warning and has no impact on the performance of Galileo conducting its analysis.</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

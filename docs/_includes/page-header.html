@@ -1,0 +1,15 @@
+    <!-- HEADER -->
+    <header>
+        <a href="{{ site.url }}/#home" id="logo" {% if page.code == "home" %}class="scroll-to-link"{% endif %} title="Galileo">{% if page.no-dark-logo == true %}{% else %}<img class="header-logo" src="/content/img/header/galileo-dark.png" alt="Galileo Dark Branding" srcset="/content/img/header/galileo-dark.png 1x, /content/img/header/galileo-dark@2x.png 2x"/>{% endif %}<img class="header-logo act" src="/content/img/header/galileo-light.png" alt="Galileo Light Branding" srcset="/content/img/header/galileo-light.png 1x, /content/img/header/galileo-light@2x.png 2x"/></a>
+        <div class="mob-icon">
+            <span></span>
+        </div>
+        <nav tabindex="0">
+            <ul>
+                <li><a href="{{ site.url }}/#about" {% if page.code == "home" %}class="scroll-to-link"{% endif %} title="About" data-id="about"><i class="fa fa-info-circle mob-only menu-icon"></i>About</a></li>
+                <li><a href="{{ site.url }}/#features" {% if page.code == "home" %}class="scroll-to-link"{% endif %} title="Features" data-id="features"><i class="fa fa-rocket mob-only menu-icon"></i>Features</a></li>
+                <li><a href="{{ site.url }}/#requirements" {% if page.code == "home" %}class="scroll-to-link"{% endif %} title="Requirements" data-id="requirements"><i class="fa fa-list-ol mob-only menu-icon"></i>Requirements</a></li>
+                <li><a href="{{ site.url }}{{ site.data.links.support }}{% if page.code == "support" %}#support{% endif %}" title="Support"{% if page.code == "support" %} class="scroll-to-link act" data-id="support"{% endif %}><i class="fa fa-support mob-only menu-icon"></i>Support</a></li>                
+            </ul>
+        </nav>                                                                          
+    </header>

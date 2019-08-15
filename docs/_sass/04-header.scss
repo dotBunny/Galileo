@@ -1,0 +1,94 @@
+header{position: fixed; left: 0px; top: 0px; width: 100%; z-index: 11; -webkit-backface-visibility: hidden;}
+#logo{position: relative; float: left; margin-left: 50px; margin-top: 42px;}
+#logo img{position: relative; float: left;}
+#logo img.act{position: absolute; left: 0px; top: 0px; opacity:0;}
+nav{position: relative; float: right; padding-right: 45px;}
+nav a{position: relative; float: left; color: #fff; font-size: 13px; text-transform: uppercase; height: 39px; line-height: 39px; padding:0px 15px; margin: 30px 5px 0px 5px;}
+nav a:visited{color: #fff;}
+nav a:hover{background:$galileo-orange; color: #fff;}
+nav a.act{background:$galileo-orange;}
+nav ul{position: relative; float: left;}
+nav ul li{background: none; position: relative; float: left;}
+nav ul li:before, nav ul li:after{display:none;}
+nav .submeny a:after{position: absolute; left: 50%; bottom:-2px; margin-left: -7px; width: 0px; height:0px; border-left: 7px solid transparent; border-right: 7px solid transparent; border-top: 7px solid $galileo-orange; content: "";}
+nav .submeny .submeny-top:before{position: absolute; left: 0px; bottom:-11px; width: 100%; content: ""; height: 11px;}
+nav .submeny:hover a:after, nav .submeny a.act:after{bottom: -7px;}
+nav ul ul{position: absolute; left: 0px; top: 84px; width: 100%; box-shadow: 0px 5px 5px rgba(0,0,0,0.15);}
+nav ul ul li{position: relative; float: left; margin-top: 0px; padding-top: 0px; padding-bottom: 0px; width: 100%;}
+nav ul ul li a{height: 0px; font-size: 0px; line-height: 0px; padding: 0px; margin: 0px; color: #777777; background: #fff; width: 200%; text-align: center; left: -50%;}
+nav ul ul li a:visited{color: #777;}
+nav ul ul li a:hover{color: #fff;}
+nav ul ul li a:after{display: none;}
+nav .submeny:hover ul li a{height: 39px; font-size: 13px; line-height: 39px;}
+nav .submeny:hover .submeny-top{background:$galileo-orange; color: #fff;}
+nav .menu-icon { padding-right: 10px;}
+
+header.act{background:#fff; box-shadow: 0px 1px 5px rgba(0,0,0,0.15);}
+header.act #logo{background:#fff; margin-top: 27px;}
+header.act #logo img{opacity:0;}
+header.act #logo img.act{opacity:1;}
+header.act nav a{color:#777777; margin-top: 15px; margin-bottom: 15px;}
+header.act nav a:visited{color: #777777;}
+header.act nav a:hover{background:$galileo-orange; color: #fff;}
+header.act nav a.act{background:$galileo-orange; color:#fff;}
+header.act nav ul ul{top: 69px;}
+header.act nav ul ul li a{margin: 0px;}
+.mob-icon{display: none;}
+
+.header-logo
+{
+    max-height: 50px;
+    top: -10px !important;
+}
+
+@media (min-width: 1200px){
+  nav ul ul{width: auto; left: 50%; margin-left: 6px; transform: translateX(-50%); -moz-transform: translateX(-50%); -webkit-transform: translateX(-50%); -ms-transform: translateX(-50%);}
+  nav ul li:last-child ul{margin-left: -25px;}
+  nav ul ul li{padding: 0; width: auto; float: none;}
+  nav ul ul li a{width: auto; float: none; display: block; left: 0; width: 185px; padding-left: 10px; padding-right: 10px;}
+}
+
+/*header type-2 (attached to bottom)*/
+@media (min-width: 1200px) {
+    body{overflow-x: hidden;}
+    header.default-act{-moz-transition:none; -o-transition:none; -webkit-transition:none; transition:none; -ms-transition:none;}
+}
+    
+@media (max-width: 1199px) {
+    #logo{margin-left: 20px; margin-top: 27px;}
+    .mob-icon{display: block; position: relative; float: right; margin-right: 20px; height: 40px; cursor: pointer;}
+    .mob-icon span{position: relative; float: left; width: 40px; height: 4px; background: $galileo-orange; margin-top: 30px;}
+    .mob-icon span:before{position: absolute; left: 0px; top: -8px; content:""; width: 40px; height: 4px; background: $galileo-orange;}
+    .mob-icon span:after{position: absolute; left: 0px; top: 8px; content:""; width: 40px; height: 4px; background: $galileo-orange;}
+    .mob-icon.act span{width: 30px;}
+    .mob-icon.act span:before{width:30px; top: -2px;}
+    .mob-icon.act span:after{width:30px; top: 2px;}
+    nav{padding-right: 0px; float: none; position: absolute; top: 65px; left: -100%; height: 100%; width: 100%; background: #000; overflow-y: auto; -webkit-overflow-scrolling: touch; -moz-overflow-scrolling: touch; -o-overflow-scrolling: touch;-ms-overflow-scrolling: touch;}
+    nav a{width: 100%; padding: 0px; margin: 0px !important; text-indent: 15px; font-size: 18px; color:#fff !important;}
+    nav ul li:last-child{margin-bottom: 65px !important;}
+    nav ul li{width: 100%; padding: 0px;}
+    nav ul ul{position:relative; float: left; top: 0px;}
+    nav ul ul li a{text-align: left; width: 100%; left: 0px; text-indent: 15px; font-size: 16px !important; color: #777 !important; opacity: 0;}
+    nav ul ul li a:hover{background: #fff;}
+    nav ul ul li:last-child{margin-bottom: 0px !important;}
+    nav .submeny a:after{bottom: 13px;}
+    nav .submeny:hover ul li a{opacity: 1;}
+    header.act nav ul ul{top: 0px;}
+    header.act nav ul ul li{margin-bottom: 0px !important;}
+    header{background:#fff; height: 65px;}
+    header #logo img{opacity:0;}
+    header #logo img.act{opacity:1;}
+    header.act-mob{height: 100%;}
+    header.act-mob nav{left: 0px;}   
+
+    .header-logo { max-height: 35px; }
+}
+@media (max-width: 991px) {
+
+}
+@media (max-width: 767px) {
+
+}
+
+
+

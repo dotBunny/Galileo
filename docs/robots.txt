@@ -1,0 +1,4 @@
+User-agent: *
+Sitemap: http://galileo.education/sitemap.xml
+Disallow: /files/*
+Disallow: /popup/*

@@ -4,7 +4,7 @@ header{position: fixed; left: 0px; top: 0px; width: 100%; z-index: 11; -webkit-b
 #logo img.act{position: absolute; left: 0px; top: 0px; opacity:0;}
 nav{position: relative; float: right; padding-right: 45px;}
 nav a{position: relative; float: left; color: #fff; font-size: 13px; text-transform: uppercase; height: 39px; line-height: 39px; padding:0px 15px; margin: 30px 5px 0px 5px;}
-nav a:visited{color: #fff;}
+nav a:visited, nav a:focus {color: #fff;}
 nav a:hover{background:$galileo-orange; color: #fff;}
 nav a.act{background:$galileo-orange;}
 nav ul{position: relative; float: left;}

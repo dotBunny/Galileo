@@ -67,7 +67,7 @@ date-created:       2018-03-30
                                 <i class="fa fa-usd item-icon" aria-hidden="true"></i>
                                 <article class="small">
                                     <h4 class="h4">Affordable Pricing</h4>
-                                    <p>Our licensing model (FREE) allows for educators to buy once and activate Galileo twice. With perpetual usage and free updates for a year, Galileo is priced right at $0</strong>.</p>
+                                    <p>Our licensing model (FREE) allows for educators to buy once and activate Galileo twice. With perpetual usage and free updates for a year, Galileo is priced right at <strong>$0</strong>.</p>
                                 </article>
                             </div>
                             <div class="col-md-12">

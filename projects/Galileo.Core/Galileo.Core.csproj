@@ -62,7 +62,7 @@
     <PackageReference Include="DocumentFormat.OpenXml" Version="2.8.1" />
     <PackageReference Include="AODL" Version="1.2.0.1" NoWarn="NU1701" />
     <PackageReference Include="iTextSharp" Version="5.5.13" NoWarn="NU1701" />
-    <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.2" />
     <PackageReference Include="IxMilia.Dxf" Version="0.7.0" />
     <PackageReference Include="I18NPortable" Version="0.6.0" />
     <PackageReference Include="RtfPipe" Version="0.7.0.6" />

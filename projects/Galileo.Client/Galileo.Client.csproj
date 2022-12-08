@@ -61,7 +61,7 @@
     <ProjectReference Include="..\Galileo.Localization\Galileo.Localization.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.2" />
     <PackageReference Include="Microsoft.Extensions.CommandLineUtils" Version="1.1.1" />
     <PackageReference Include="I18NPortable" Version="0.6.0" />
     <PackageReference Include="Xam.Plugins.Settings" Version="4.0.0.7" />
